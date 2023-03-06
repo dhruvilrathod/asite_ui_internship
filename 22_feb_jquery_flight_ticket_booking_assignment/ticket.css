@@ -1,0 +1,241 @@
+/* Global CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    width: 100vw;
+    height: auto;
+    position: relative;
+}
+
+body .navbar {
+    padding: 0 100px;
+    /* border: 2px solid red;    */
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222222;
+    color: white;
+    z-index: 5;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+body .navbar .logo a {
+    text-decoration: none;
+    color: white;
+}
+
+body .navbar .logo {
+    font-size: 50px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+body .navbar .logo span {
+    color: teal;
+}
+
+
+body .navbar .menus ul {
+    display: flex;
+    /* border: 2px solid red; */
+    list-style: none;
+    gap: 50px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+body .navbar .menus ul a {
+    text-decoration: none;
+    color: white;
+    letter-spacing: 1px;
+    transition: color ease 600ms;
+}
+
+body .navbar .menus ul a:hover {
+    color: teal;
+}
+
+body .navbar .menus ul a.active {
+    color: teal;
+}
+
+.invoice {
+    margin: auto;
+    width: 600px;
+    height: 650px;
+    border: 1px solid black;
+    margin-top: 50px;
+}
+
+.invoice .heading {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.invoice .heading-icon {
+    width: 80px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.invoice .detail {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 30px;
+    margin-left: 40px;
+    /* border: 2px solid red; */
+}
+
+.invoice .duration {
+    padding: 20px;
+    padding-right: 40px;
+    font-size: 20px;
+}
+
+.invoice .flight-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.invoice .flight-details {
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid red; */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid red; */
+}
+
+.container .flight-information {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 2px solid red; */
+}
+
+.airport-details {
+    /* border: 2px solid red; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.airport-details span {
+    font-size: 10px;
+    text-align: center;
+}
+
+.flight-name {
+    font-size: 18px;
+    margin-bottom: -9px;
+    font-weight: bold;
+    /* text-align: center; */
+}
+
+.baggage {
+    text-align: center;
+}
+
+.pnr-details {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.airport-details {
+    margin-left: 20px;
+}
+
+.baggage {
+    font-size: 14px;
+}
+
+.pnr-details {
+    margin-right: 30px;
+
+}
+
+.booking-details {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.total-time {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-weight: 400;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 0;
+    /* border: 2px solid red; */
+}
+
+.time-and-location {
+    display: flex;
+    font-size: 30px;
+
+}
+
+.time {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.date {
+    font-size: 14px;
+    margin-left: -50px;
+}
+
+.passenger-details {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.passenger-name {
+    color: black;
+    font-weight: bold;
+}
+
+.status {
+    color: green;
+}
+
+.payment-details {
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bill-amount {
+    margin-top: 60px;
+    padding-right: 20px;
+}

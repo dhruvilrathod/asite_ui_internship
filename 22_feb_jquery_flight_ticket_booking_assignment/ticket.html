@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="ticket.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                Travel <span>World</span>
+            </a>
+        </div>
+        <div class="menus">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a class="active" href="booknow.html">
+                        Book Now
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="invoice">
+        <div class="heading">
+            <div>
+                <img class="heading-icon" src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png" alt="">
+            </div>
+            <div>
+                <h2>Flight Booking</h2>
+            </div>
+
+            <p>Flight Id: <span class="flightId">21335489</span> </p>
+        </div>
+        <hr>
+        <div class="flight-details">
+            <div class="detail">
+                <h5 class="arr">Pune</h5>
+                <img class="flight-icon"
+                    src="https://www.pngkey.com/png/detail/880-8800742_airplane-mode-globe-flight-icon.png" alt="">
+                <h6 class="des">Ahmedabad</h6>
+            </div>
+            <div class="duration">
+                <p class="">1h 10m</p>
+
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="flight-information">
+                <div class="information">
+                    <img class="heading-icon" src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png" alt="">
+                </div>
+                <div class="airport-details">
+                    <p class="flight-name" id="flightName">Indigo 6E-819 <span>Economy</span></p>
+                    <p class="baggage">7 kgs (1 piece only) span. 15 Kgs<br> (1 piece only)</p>
+                </div>
+            </div>
+            <div class="pnr-details">
+                <p style="font-size: 20px; margin-bottom: -25px;">PNR:</p>
+                <h5 style="font-size: 20px;">FWSYPW</h5>
+
+            </div>
+        </div>
+        <div class="booking-details">
+            <div class="time-and-location">
+                <p class="arrival">PNQ </p>
+                <p class="time">04:55 <br> <span class="date">25 Feb, 2023</span> </p>
+            </div>
+            <div class="total-time">
+                <p class="duration" id="duration">1h 10m<br>duration</p>
+            </div>
+            <div class="time-and-location">
+                <p class="location">AMD </p>
+                <p class="time">06:05<br> <span class="date">25 Feb, 2023</span></p>
+            </div>
+        </div>
+        <div class="passenger-details">
+            <div class="passenger-name">
+                <p id="passenger-name">Harsh<br> Maheshwari</p>
+            </div>
+            <div class="passenger-class">
+                <p class="totalSeats">Adult</p>
+            </div>
+            <div class="status">
+                <p>Confirmed</p>
+            </div>
+        </div>
+        <hr>
+        <div class="payment-details">
+            <div>
+                <h3>Payment Summary</h3>
+                <hr>
+                <p>Base fare</p>
+                <p>Taxes & Fare</p>
+                <p>Convenince Fee </p>
+                <p style=" color: green;">Discount applied</p>
+                <p style="font-weight: bold;">Order Total</p>
+            </div>
+            <div class="bill-amount">
+                <p></p>
+                <p class="totalAmount">7200 INR</p>
+                <p>1956 INR</p>
+                <p>592 INR</p>
+                <p style=" color: green;">-1000 INR</p>
+                <p style="color: red;" class="orderTotalAmount">8754 INR</p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    $(document).ready(() => {
+        const data = JSON.parse(localStorage.getItem("Passenger"));
+        $(".duration").html(data.duration + " H");
+        $(".arrival").html(data.arrival);
+        $(".location").html(data.departure);
+        $("#passenger-name").html(data.fname + " " + data.lname);
+        $(".arr").html(data.arrival);
+        $(".des").html(data.departure);
+        $(".totalAmount").html(data.total + " INR");
+        $(".orderTotalAmount").html(data.orderTotal + " INR");
+        $(".flightId").html(data.flight.flightID);
+        $(".totalSeats").html(data.selectedSeats.length + " Seats Booked");
+        $("#flightName").html(data.flight.airline);
+    })
+</script>
+
+</html>

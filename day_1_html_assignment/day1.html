@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1</title>
+</head>
+
+<body>
+
+    <!-- First form -->
+    <div>
+        <p align="center">
+            <b>Let us know how we can improve FreeCodeCamp</b>
+        </p>
+        <form>
+            <table width="800" align="center" cellpadding="10">
+                <tbody>
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="name">
+                                * Name:
+                            </label>
+                        </td>
+                        <td width="400">
+                            <input type="text" name="name" placeholder="Enter Your Name" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="email">* Email:</label>
+                        </td>
+                        <td width="400">
+                            <input type="email" name="email" placeholder="Enter Your Email" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="age">* Age:</label>
+                        </td>
+                        <td width="400">
+                            <input type="number" name="age" placeholder="Age" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="role">
+                                Which option best describes your current role?
+                            </label>
+                        </td>
+                        <td width="400">
+                            <select name="role">
+                                <option value="Student" selected>Student</option>
+                                <option value="Intern">Intern</option>
+                                <option value="Jr. Developer">Jr. Developer</option>
+                                <option value="Sr. Developer">Sr. Developer</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="recommandation">* How likely would you recommand FreeCodeCamp to a
+                                frirend?</label>
+                        </td>
+                        <td width="400">
+                            <input type="radio" name="recommandation" id="definitely" value="Definitely"><label
+                                for="definitely">Definitely</label> <br>
+                            <input type="radio" name="recommandation" id="maybe" value="Maybe"><label
+                                for="maybe">Maybe</label><br>
+                            <input type="radio" name="recommandation" id="notsure" value="Not Sure"><label
+                                for="notsure">Not
+                                Sure</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="like">
+                                What do you like most in FCC?
+                            </label>
+                        </td>
+                        <td width="400">
+                            <select name="like">
+                                <option value="" selected disabled>Select an option</option>
+                                <option value="Fundamentals">Fundamentals</option>
+                                <option value="Practicals">Practicals</option>
+                                <option value="Theories">Theories</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="improvements">Things that should be improved in the future <br> (Check all that
+                                apply):</label>
+                        </td>
+                        <td width="400">
+                            <div>
+                                <input type="checkbox" name="improvmeents" id="frontend" value="Frontend Projects">
+                                <label for="frontend">Frontend Projects</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="improvmeents" id="backend" value="Backend Projects">
+                                <label for="backend">Backend Projects</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="improvmeents" id="visulization" value="Data Visulization">
+                                <label for="visulization">Data Visulization</label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+    <hr>
+
+    <!-- List -->
+    <div>
+        <ul>
+            <li>HTML
+                <ul>
+                    <li>HTML 1</li>
+                    <li>HTML 2</li>
+                    <li>HTML 4</li>
+                    <li>HTML 5</li>
+                </ul>
+            </li>
+            <li>CSS</li>
+            <li>Javascript</li>
+        </ul>
+    </div>
+    <hr>
+
+    <!-- Another form -->
+    <div>
+        <p align="center">
+            <b>Survey Form (Thank you for this survey)</b>
+        </p>
+        <form>
+            <table width="800" align="center" cellpadding="10">
+                <tbody>
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="name">
+                                Name:
+                            </label>
+                        </td>
+                        <td width="400">
+                            <input type="text" name="name" placeholder="Enter Your Name" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="email">Email:</label>
+                        </td>
+                        <td width="400">
+                            <input type="email" name="email" placeholder="Enter Your Email" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="stream">Stream:</label>
+                        </td>
+                        <td width="400">
+                            <input type="text" name="stream" placeholder="Enter Your Stream" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="batch">Batch:</label>
+                        </td>
+                        <td width="400">
+                            <input type="text" name="batch" placeholder="Enter Your Batch" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="recommandation">Would you recommand this course?</label>
+                        </td>
+                        <td width="400">
+                            <input type="radio" name="recommandation" id="yes" value="Yes"><label
+                                for="yes">Definitely</label> <br>
+                            <input type="radio" name="recommandation" id="no" value="No"><label for="No">Maybe</label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="feedback">Feedback:</label>
+                        </td>
+                        <td width="400">
+                            <textarea type="text" name="feedback" placeholder="Enter Your Feedback" required></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="improvements">Improvements:</label>
+                        </td>
+                        <td width="400">
+                            <textarea type="text" name="improvements" placeholder="Enter any improvements"
+                                required></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="college_env">
+                                How is the college environment?
+                            </label>
+                        </td>
+                        <td width="400">
+                            <select name="college_env">
+                                <option value="Excellent" selected>Excellent</option>
+                                <option value="Good">Good</option>
+                                <option value="Needs Improvements">Needs Improvements</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="college_lib">
+                                How is the college library?
+                            </label>
+                        </td>
+                        <td width="400">
+                            <select name="college_lib">
+                                <option value="Excellent" selected>Excellent</option>
+                                <option value="Good">Good</option>
+                                <option value="Needs Improvements">Needs Improvements</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="rating">Rating</label>
+                        </td>
+                        <td width="400">
+                            <input type="radio" name="rating" id="1*"><label for="1*">*</label> <br>
+                            <input type="radio" name="rating" id="2*"><label for="2*">**</label> <br>
+                            <input type="radio" name="rating" id="3*"><label for="3*">***</label> <br>
+                            <input type="radio" name="rating" id="4*"><label for="4*">****</label> <br>
+                            <input type="radio" name="rating" id="5*"><label for="5*">*****</label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" width="400">
+                            <label for="other_feedback">Any Other Feedback:</label>
+                        </td>
+                        <td width="400">
+                            <textarea type="text" name="other_feedback" placeholder="Enter any other feedback"
+                                required></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" width="400">
+                            <button type="submit">Submit</button>
+                        </td>
+                        <td width="400">
+                            <button type="reset">Reset</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+    <hr>
+
+    <!-- Table 1 -->
+    <table align="center" width="800" height="50">
+        <tr align="center" width="800" bgcolor="darkorange">
+            <th colspan="3">
+                First Frame: Name and address
+            </th>
+        </tr>
+        <tr bgcolor="orange">
+            <td width="50%" colspan="1">
+                Second Frame <br>
+                <ul>
+                    <li>SSC</li>
+                    <li>HSC</li>
+                    <li>Bachelors of Engineering</li>
+                    <li>Masters of Engineering</li>
+                </ul>
+            </td>
+            <td width="400" colspan="2" align="center">
+                Third Frame <br>
+                <a href="www.google.com">www.google.com</a> <br>
+                <a href="www.youtube.com">www.youtube.com</a> <br>
+                <a href="www.netflix.com">www.netflix.com</a> <br>
+                <a href="www.facebook.com">www.facebook.com</a>
+            </td>
+        </tr align="center">
+        <tr height="10px" bgcolor="orange">
+            <td width="33%" height="10px">
+                Forth Frame <br>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci nostrum laudantium ab dolor
+                    eligendi exercitationem, laborum, iure officiis et sunt consequuntur. Deleniti nisi in repudiandae
+                    vitae dolores ullam sit magni? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id est
+                    molestias quibusdam minima, autem eaque obcaecati, vel, corporis quam accusantium ducimus rem
+                    laboriosam veritatis fugiat incidunt voluptate tempora facilis porro.
+                </p>
+            </td>
+            <td width="300" height="100" align="center">
+                Fifth Frame <br>
+                <blink>Hello world!</blink>
+            </td>
+            <td width="200" height="100" align="center">
+                Sixth Frame <br>
+                <img width="200" src="myimg.jpg" alt="">
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <!-- Sample Dropdown -->
+    <div align="center">
+        <label for="my_dropdown"><b>Sample Dropdown</b></label>
+        <br>
+        <br>
+        <select name="my_dropdown">
+            <optgroup label="Maharashtra">
+            <optgroup label="Pune">
+                <option value="Dighi">Dighi</option>
+                <option value="Moshi">Moshi</option>
+                <option value="Shivajinagar">Shivajinagar</option>
+            </optgroup>
+            <optgroup label="Mumbai">
+                <option value="Santakruiz">Santakruiz</option>
+                <option value="Vikroli">Vikroli</option>
+                <option value="Mumbra">Mumbra</option>
+            </optgroup>
+            </optgroup>
+        </select>
+    </div>
+
+    <hr>
+
+    <!-- Seminar -->
+    <div align="center">
+        <b>Seminar Schedule</b> <br><br>
+        <table width="900" border="1" align="center">
+            <tr>
+                <th rowspan="3" colspan="1" width="200">
+                    Day
+                </th>
+                <th colspan="3">
+                    Seminar
+                </th>
+            </tr>
+            <tr>
+                <th colspan="2">Schedule</th>
+                <th rowspan="2" width="400">Topic</th>
+            </tr>
+            <tr>
+                <th width="150">Begin</th>
+                <th width="150">End</th>
+            </tr>
+            <tr align="center">
+                <td rowspan="2">Monday</td>
+                <td rowspan="2" bgcolor="lightyellow">8:00 a.m.</td>
+                <td rowspan="2" bgcolor="lightblue">5:00 p.m.</td>
+                <td>Introduction to XML</td>
+            </tr>
+            <tr align="center">
+                <td>Valdity: DTD and Relax NG</td>
+            </tr>
+            <tr align="center">
+                <td rowspan="3">Tuesday</td>
+                <td bgcolor="lightyellow">8:00 a.m.</td>
+                <td bgcolor="lightyellow">10:00 a.m.</td>
+                <td rowspan="3">
+                    <table border="1" width="400" height="80">
+                        <tr align="center">
+                            <td>XPath</td>
+                        </tr>
+                        <tr align="center">
+                            <td>XSL Transformation</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr align="center">
+                <td bgcolor="lightyellow">11:00 a.m.</td>
+                <td bgcolor="lightgreen">2:00 p.m.</td>
+            </tr>
+            <tr align="center">
+                <td bgcolor="lightgreen">2:00 p.m.</td>
+                <td bgcolor="lightblue">5:00 p.m.</td>
+            </tr>
+            <tr align="center">
+                <td>Wednesday</td>
+                <td bgcolor="lightyellow">8:00 a.m.</td>
+                <td bgcolor="lightgreen">12:00 p.m.</td>
+                <td>XSL Formatting Object</td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+
+    <!-- Time table 1-->
+    <div align="center">
+        <b>Time Table 1</b> <br><br>
+        <table border="1" width="900">
+            <tr align="center">
+                <th>Day/Period</th>
+                <th>I <br> 9:30 to 10:20</th>
+                <th>II <br> 10:20 to 11:10</th>
+                <th>III <br> 11:10 to 12:00</th>
+                <th> 12:00 to 12:40</th>
+                <th>IV <br> 12:40 to 1:30</th>
+                <th>V <br> 1:30 to 2:20</th>
+                <th>VI <br> 2:20 to 3:10</th>
+                <th>VII <br> 3:20 to 4:00</th>
+            </tr>
+            <tr align="center">
+                <th>Monday</th>
+                <td>Eng</td>
+                <td>Mat</td>
+                <td>Che</td>
+                <td rowspan="6">
+                    <table>
+                        <tr>
+                            <td><b>L</b></td>
+                        </tr>
+                        <tr>
+                            <td><b>U</b></td>
+                        </tr>
+                        <tr>
+                            <td><b>N</b></td>
+                        </tr>
+                        <tr>
+                            <td><b>C</b></td>
+                        </tr>
+                        <tr>
+                            <td><b>H</b></td>
+                        </tr>
+                    </table>
+                </td>
+                <td colspan="3">LAB</td>
+                <td>Phy</td>
+            </tr>
+            <tr align="center">
+                <th>Tuesday</th>
+                <td colspan="3">LAB</td>
+                <td>Eng</td>
+                <td>Che</td>
+                <td>Mat</td>
+                <td>SPORTS</td>
+            </tr>
+            <tr align="center">
+                <th>Wednesday</th>
+                <td>Mat</td>
+                <td>Phy</td>
+                <td>Eng</td>
+                <td>Che</td>
+                <td colspan="3">LIBRARY</td>
+            </tr>
+            <tr align="center">
+                <th>Thursday</th>
+                <td>Phy</td>
+                <td>Eng</td>
+                <td>Che</td>
+                <td colspan="3">LAB</td>
+                <td>Mat</td>
+            </tr>
+            <tr align="center">
+                <th>Friday</th>
+                <td colspan="3">LAB</td>
+                <td>Mat</td>
+                <td>Che</td>
+                <td>Eng</td>
+                <td>Phy</td>
+            </tr>
+            <tr align="center">
+                <th>Saturday</th>
+                <td>Eng</td>
+                <td>Che</td>
+                <td>Mat</td>
+                <td colspan="3">SEMINAR</td>
+                <td>SPORTS</td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+
+    <!-- Time table 2 -->
+    <div align="center">
+        <b>Time Table 2</b> <br><br>
+        <table border="1" width="900">
+            <tr align="center">
+                <th colspan="6">Time Table</th>
+            </tr>
+            <tr align="center">
+                <td rowspan="6">Hours</td>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+            </tr>
+            <tr align="center">
+                <td>Science</td>
+                <td>Maths</td>
+                <td>Science</td>
+                <td>Maths</td>
+                <td>Arts</td>
+            </tr>
+            <tr align="center">
+                <td>Science</td>
+                <td>Maths</td>
+                <td>Science</td>
+                <td>Maths</td>
+                <td>Arts</td>
+            </tr>
+            <tr align="center">
+                <td colspan="5"><b>Lunch</b></td>
+            </tr>
+            <tr align="center">
+                <td>Science</td>
+                <td>Maths</td>
+                <td>Science</td>
+                <td>Maths</td>
+                <td rowspan="2">Project</td>
+            </tr>
+            <tr align="center">
+                <td>Science</td>
+                <td>Maths</td>
+                <td>Science</td>
+                <td>Maths</td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+    <!-- Table 1 -->
+    <div align="center">
+        <b>Table 1</b> <br><br>
+        <table width="900">
+            <tr bgcolor="cornflowerblue">
+                <td><b>Item </b></td>
+                <td><b>Manufacturer </b></td>
+                <td align="center"><b>Size </b></td>
+                <td align="center"><b>Unit Price </b></td>
+                <td align="center"><b>Quantity </b></td>
+                <td align="center"><b>Total Price </b></td>
+            </tr>
+            <tr bgcolor="gainsboro">
+                <td>Corn Flakes</td>
+                <td>Kellogg's</td>
+                <td align="center">18 oz.</td>
+                <td align="center">2.50</td>
+                <td align="center">1</td>
+                <td align="center">2.50</td>
+            </tr>
+            <tr bgcolor="aliceblue">
+                <td>Solid Whte Tuna</td>
+                <td>Starkist</td>
+                <td align="center">5 oz.</td>
+                <td align="center">2.79</td>
+                <td align="center">2</td>
+                <td align="center">5.58</td>
+            </tr>
+            <tr bgcolor="gainsboro">
+                <td>Cream of Mashroom Soup</td>
+                <td>Campbell's</td>
+                <td align="center">10.75 oz.</td>
+                <td align="center">1.00</td>
+                <td align="center">2</td>
+                <td align="center">2.00</td>
+            </tr>
+            <tr bgcolor="aliceblue">
+                <td>2% Lowfat Mikl</td>
+                <td>Safeway</td>
+                <td align="center">0.5 gal</td>
+                <td align="center">1.99</td>
+                <td align="center">1</td>
+                <td align="center">1.99</td>
+            </tr>
+            <tr bgcolor="gainsboro">
+                <td>Extra-Wide Egg Noodles</td>
+                <td>Golden Grain</td>
+                <td align="center">12 oz.</td>
+                <td align="center">0.87</td>
+                <td align="center">3</td>
+                <td align="center">2.61</td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+    <!-- Table 2 -->
+    <div align="center">
+        <b>Table 2</b> <br><br>
+        <table width="900">
+            <tr>
+                <td><b>Item </b></td>
+                <td><b>Manufacturer </b></td>
+                <td align="center"><b>Size </b></td>
+                <td align="center"><b>Unit Price </b></td>
+                <td align="center"><b>Quantity </b></td>
+                <td align="center"><b>Total Price </b></td>
+            </tr>
+            <tr>
+                <td>Corn Flakes</td>
+                <td>Kellogg's</td>
+                <td align="center">18 oz.</td>
+                <td align="center">2.50</td>
+                <td align="center">1</td>
+                <td align="center">2.50</td>
+            </tr>
+            <tr>
+                <td>Solid Whte Tuna</td>
+                <td>Starkist</td>
+                <td align="center">5 oz.</td>
+                <td align="center">2.79</td>
+                <td align="center">2</td>
+                <td align="center">5.58</td>
+            </tr>
+            <tr>
+                <td>Cream of Mashroom Soup</td>
+                <td>Campbell's</td>
+                <td align="center">10.75 oz.</td>
+                <td align="center">1.00</td>
+                <td align="center">2</td>
+                <td align="center">2.00</td>
+            </tr>
+            <tr>
+                <td>2% Lowfat Mikl</td>
+                <td>Safeway</td>
+                <td align="center">0.5 gal</td>
+                <td align="center">1.99</td>
+                <td align="center">1</td>
+                <td align="center">1.99</td>
+            </tr>
+            <tr>
+                <td>Extra-Wide Egg Noodles</td>
+                <td>Golden Grain</td>
+                <td align="center">12 oz.</td>
+                <td align="center">0.87</td>
+                <td align="center">3</td>
+                <td align="center">2.61</td>
+            </tr>
+            <tr>
+                <td><b>Total</b></td>
+                <td align="center" colspan="3"></td>
+                <td align="center"><b>9</b></td>
+                <td align="center"><b>14.68</b></td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+    <!-- Average Calculator -->
+    <div align="center">
+        <h1>Average Calculator</h1>
+        <p>Calculates Average/Median/Mode/Standard Deviation:</p>
+        <form>
+            <table width="500" align="center" cellpadding="10">
+                <tbody>
+                    <tr>
+                        <td width="100">
+                            <label for="value">
+                                Enter Data Values:
+                            </label>
+                        </td>
+                        <td width="400">
+                            <textarea type="text" name="values" required></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100">
+                            <label for="delimiter">
+                                Numbers Delimiters
+                            </label>
+                        </td>
+                        <td width="100">
+                            <select name="delimiter">
+                                <option value="Space">Space</option>
+                                <option value="Comma">Comma</option>
+                            </select>
+                            <input type="text" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100">
+                        </td>
+                        <td width="400">
+                            <button color="white" bgcolor="lightgreen">Calculate</button>
+                            <button color="white" bgcolor="red">Reset</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100">
+                            Average (Mean):
+                        </td>
+                        <td width="400">
+                            <input type="text" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100">
+                            Median:
+                        </td>
+                        <td width="400">
+                            <input type="text" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100">
+                            Mode:
+                        </td>
+                        <td width="400">
+                            <input type="text" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100">
+                            Population SD:
+                        </td>
+                        <td width="400">
+                            <input type="text" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100">
+                            Sample SD:
+                        </td>
+                        <td width="400">
+                            <input type="text" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100">
+                            Count:
+                        </td>
+                        <td width="400">
+                            <input type="text" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100">
+                            Sum:
+                        </td>
+                        <td width="400">
+                            <input type="text" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100">
+                            Min value:
+                        </td>
+                        <td width="400">
+                            <input type="text" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100">
+                            Max Value:
+                        </td>
+                        <td width="400">
+                            <input type="text" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100">
+                            Range:
+                        </td>
+                        <td width="400">
+                            <input type="text" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            Average Calculation:
+                            <br>
+                            <textarea type="text" disabled></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+    <hr>
+    <!-- Travel Reservation Form -->
+    <div align="center">
+        <h1>Travel Reservation Form</h1>
+        <p><b>* Denotes mandotory</b></p>
+        <form width="300">
+            <label for="fullname">
+                Full Name*:
+            </label>
+            <input type="text" name="fullname" placeholder="FirstName LastName">
+            <br><br>
+            <label for="email">
+                Email address*:
+            </label>
+            <input type="email" name="email" placeholder="EMAIL_ADDRESS">
+            <br><br>
+            <label for="tour">
+                Select Tour Package*:
+            </label>
+            <select name="tour">
+                <option value="Goa" selected>Goa</option>
+                <option value="Dubai">Dubai</option>
+                <option value="Australia">Australia</option>
+            </select>
+            <br><br>
+            <label for="date">
+                Arrival Date*:
+            </label>
+            <input type="date" name="fullname" placeholder="m/d/y">
+            <br><br>
+            <label for="persons">
+                Number of persons*:
+            </label>
+            <input name="persons" placeholder="UNKNOWN_TYPE">
+            <br><br>
+            <label for="avail">
+                What would you want to avail*:
+            </label>
+            <br>
+                <input type="checkbox" name="avail" id="boarding"> <label for="boarding">Boarding</label><br>
+                <input type="checkbox" name="avail" id="fooding"> <label for="fooding">Fooding</label><br>
+                <input type="checkbox" name="avail" id="sight"> <label for="sight">Sight Seeing</label><br>
+            <br><br>
+            <label for="fullname">
+                Full Name*:
+            </label>
+            <input type="text" name="fullname" placeholder="FirstName LastName">
+            <br><br>
+            <label for="coupon">
+                Discount Coupon COde:
+            </label>
+            <input name="coupon" placeholder="UNKNOWN_TYPE">
+            <br><br>
+            <label for="terms">
+                Terms and conditions*:
+            </label><br>
+                <input type="radio" name="terms" id="agree"> <label for="agree">I Agree</label><br>
+                <input type="radio" name="terms" id="disagree"> <label for="agree">I disagree</label><br>
+            <br>
+            <button>Complete Reservation</button>
+        </form>
+    </div>
+</body>
+
+</html>

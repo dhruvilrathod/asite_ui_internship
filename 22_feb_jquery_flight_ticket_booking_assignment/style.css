@@ -1,0 +1,564 @@
+/* Global CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    width: 100vw;
+    height: auto;
+}
+
+body .navbar {
+    padding: 0 100px;
+    /* border: 2px solid red;    */
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222222;
+    color: white;
+    z-index: 5;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 15;
+}
+
+body .navbar .logo a {
+    text-decoration: none;
+    color: white;
+}
+
+body .navbar .logo {
+    font-size: 50px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+body .navbar .logo span {
+    color: teal;
+}
+
+
+body .navbar .menus ul {
+    display: flex;
+    /* border: 2px solid red; */
+    list-style: none;
+    gap: 50px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+body .navbar .menus ul a {
+    text-decoration: none;
+    color: white;
+    letter-spacing: 1px;
+    transition: color ease 600ms;
+}
+
+body .navbar .menus ul a:hover {
+    color: teal;
+}
+
+body .navbar .menus ul a.active {
+    color: teal;
+}
+
+body header {
+    /* border: 2px solid red; */
+    height: calc(100vh - 120px);
+    width: 100vw;
+    background: url('./Assets/header.jpg');
+    background-position: 0 -320px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    position: relative;
+}
+
+body header .bottomOverlay {
+    background: url('./Assets/shape-pat.png');
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    height: 100px;
+    /* border: 2px solid red; */
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+body header .overlay {
+    /* border: 2px solid red; */
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    left: 0;
+}
+
+body header .content {
+    z-index: 5;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 910px;
+    margin-top: 200px;
+    gap: 10px;
+}
+
+body header .content h1 {
+    /* border: 2px solid red; */
+    font-size: 55px;
+    font-weight: 500;
+    text-align: center;
+    width: 750px;
+}
+
+body header .content p {
+    /* border: 2px solid red; */
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+}
+
+body section.cards {
+    /* border: 2px solid red; */
+    /* height: 100vh; */
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    padding: 100px 100px;
+    width: 100%;
+}
+
+body section.cards .card {
+    height: 300px;
+    /* border: 2px solid red; */
+    width: 350px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    background: rgb(235, 235, 235);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+body section.cards .card:hover .overlay {
+    transform: translateY(0);
+}
+
+body section.cards .card:hover p {
+    color: white;
+}
+
+body section.cards .card .overlay {
+    /* border: 2px solid red; */
+    height: 100%;
+    width: 100%;
+    background-color: #222222;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    transform: translateY(100%);
+    transition: all 500ms ease;
+}
+
+body section.cards .card svg {
+    height: 100px;
+    width: auto;
+    z-index: 5;
+}
+
+body section.cards .card p {
+    font-size: 24px;
+    z-index: 5;
+    text-align: center;
+    transition: all 500ms ease;
+}
+
+body section.explore {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    padding: 0 100px;
+    align-items: center;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    padding-bottom: 80px;
+}
+
+body section.explore h1 {
+    font-size: 50px;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+
+body section.explore h1 span {
+    color: teal;
+}
+
+body section.explore .destinations {
+    /* border: 2px solid red; */
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(11, 80px);
+    grid-template-rows: repeat(6, 80px);
+}
+
+body section.explore .destinations .location {
+    /* border: 2px solid red;   */
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+body section.explore .destinations .location:hover img {
+    /* border: 2px solid red;   */
+    scale: 1.1;
+}
+
+body section.explore .destinations .location .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    /* background: red; */
+}
+
+body section.explore .destinations .location img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all 800ms ease;
+}
+
+body section.explore .destinations .location:first-child {
+    grid-column: 1 / 7;
+    grid-row: 1 / 4;
+}
+
+body section.explore .destinations .location:nth-child(2) {
+    grid-column: 7 / 12;
+    grid-row: 1 / 7;
+}
+
+body section.explore .destinations .location:nth-child(3) {
+    grid-column: 1 / 4;
+    grid-row: 4 / 7;
+}
+
+body section.explore .destinations .location:last-child {
+    grid-column: 4 / 7;
+    grid-row: 4 / 7;
+}
+
+body section.explore .destinations .location img {
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+body section.explore .destinations .location .content {
+    /* border: 2px solid red; */
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: white;
+    font-size: 22px;
+    text-transform: capitalize;
+}
+
+body section.explore .destinations .location .content .city {
+    color: gold;
+}
+
+body footer {
+    background-color: #222222;
+    color: white;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+body section.bookNow {
+    height: calc(100vh - 190px);
+    /* border: 2px solid red; */
+    display: flex;
+    padding: 0 100px;
+}
+
+body section.bookNow .left,
+body section.bookNow .right {
+    height: 100%;
+    width: 50%;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+section.bookNow .left {
+    padding-right: 100px;
+}
+
+section.bookNow .left h2 {
+    font-size: 30px;
+    font-weight: 500;
+    color: teal;
+    margin-bottom: 20px;
+}
+
+section.bookNow .left h1 span {
+    color: teal;
+}
+
+section.bookNow .left h1 {
+    font-size: 60px;
+    font-weight: 600;
+    color: rgb(1, 26, 57);
+    line-height: 60px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+section.bookNow .left p {
+    font-size: 22px;
+    color: rgb(82, 82, 82);
+    margin-bottom: 20px;
+}
+
+section.bookNow .left .form {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+section.bookNow .left .form .fields {
+    display: flex;
+    /* border: 2px solid red; */
+    width: 100%;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+section.bookNow .left .form input,
+section.bookNow .left .form select,
+section.bookNow .left .form datalist {
+    /* display: block !important; */
+
+    padding: 10px;
+    width: 350px;
+    border: 2px solid teal;
+    color: teal;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+input::-webkit-calendar-picker-indicator {
+    opacity: 100;
+}
+
+input::placeholder {
+    color: teal;
+}
+
+section.bookNow .left .form button:hover {
+    letter-spacing: 3px;
+}
+
+section.bookNow .left .form button {
+    padding: 15px 10px;
+    width: 230px;
+    background-color: teal;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-weight: 600;
+    transition: all ease 500ms;
+}
+
+
+section.bookNow .right {
+    padding: 0 50px;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+section.bookNow .right .round {
+    /* border: 2px solid red; */
+    height: 600px;
+    width: 600px;
+    border-radius: 50%;
+    background-color: #222222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* overflow: hidden; */
+}
+
+section.bookNow .right .round img {
+    /* border: 2px solid red; */
+    height: 650px;
+    width: auto;
+}
+
+
+section.flights {
+    /* border: 2px solid red; */
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    display: none;
+}
+
+section.flights h1.title {
+    /* border: 2px solid red; */
+    font-size: 35px;
+    font-weight: 500;
+}
+
+section.flights .flightCards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 50px 0;
+    /* border: 2px solid red; */
+}
+
+.flight-card {
+    height: fit-content;
+    width: 1400px;
+    border: 2px solid teal;
+    /* border: 2px solid red; */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    /* padding-bottom: 0; */
+}
+
+.flight-card .flightTitle {
+    /* border: 2px solid black; */
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.flight-card .flightCode {
+    /* border: 2px solid black; */
+    font-size: 16px;
+    color: rgb(85, 85, 85);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.flight-card .flightDetails {
+    /* border: 2px solid black; */
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-top: 2px solid teal;
+}
+
+
+.flight-card .flightDetails>div {
+    /* border: 2px solid black; */
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    justify-content: center;
+}
+
+.flight-card .flightDetails>div h3 {
+    /* border: 2px solid black; */
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.flight-card .flightDetails>div h2 {
+    /* border: 2px solid black; */
+    font-size: 28px;
+    font-weight: 500;
+    margin-left: 10px;
+    color: teal;
+}
+
+.flight-card img {
+    transform: rotate(90deg);
+    width: 70px;
+    height: 100px;
+}
+
+
+.flight-card a.book {
+    padding: 15px 10px;
+    width: 230px;
+    background-color: teal;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-weight: 600;
+    transition: all ease 500ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.flight-card a.book:hover {
+    letter-spacing: 3px;
+}
+
+section.noFlights {
+    display: none;
+}

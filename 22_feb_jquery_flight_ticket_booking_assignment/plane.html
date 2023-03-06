@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="plane.css">
+    <title>Seat Booking</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                Travel <span>World</span>
+            </a>
+        </div>
+        <div class="menus">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a class="active" href="booknow.html">
+                        Book Now
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Top content -->
+    <div class="flightCards">
+        <div class="flight-card">
+            <h2 id="airlineName" class="flightTitle">
+                Air India Airline
+            </h2>
+            <h4 class="flightCode" id="flightID">
+                AIR904
+            </h4>
+            <div class="flightDetails">
+                <div>
+                    <h3>
+                        From
+                    </h3>
+                    <h2 id="departure" class="boarding-point">
+                        ${flight.from.name} Airport
+                    </h2>
+                </div>
+                <img class="flight-icon" src="Assets/flight.png" alt="">
+                <div>
+                    <h3>
+                        To
+                    </h3>
+                    <h2 id="arrival" class="destination">
+                        Ahmedabad Airport, Ahmedabad
+                    </h2>
+                </div>
+                <div>
+                    <h3>
+                        Departure Time
+                    </h3>
+                    <h2 id="departure_time">
+                        ${flight.departure_time}
+                    </h2>
+                </div>
+                <div>
+                    <h3>
+                        Duration Time
+                    </h3>
+                    <h2 id="duration_time">
+                        ${flight.departure_time}
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Flight structure -->
+    <div id="flightStructureContainer" class="flight-structure-container">
+        <div class="left-wing">
+        </div>
+        <div class="plane-nose">
+
+        </div>
+        <div class="plane-body">
+
+            <div class="economy-container plane-part">
+
+                <div class="seat-container">
+
+                    <div id="economyPart1" class="seat-row">
+                    </div>
+
+                    <div id="economyPart2" class="seat-row">
+                    </div>
+
+                </div>
+
+                <div class="row-separator">
+                    Economy
+                </div>
+                <div class="seat-container">
+
+                    <div id="economyPart3" class="seat-row">
+                    </div>
+
+                    <div id="economyPart4" class="seat-row">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="business-class-container plane-part">
+                <div class="seat-container">
+
+                    <div id="businessClassPart1" class="seat-row">
+                    </div>
+
+                </div>
+
+                <div class="row-separator">
+                    Business Class
+                </div>
+                <div class="seat-container">
+
+                    <div id="businessClassPart2" class="seat-row">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="right-wing">
+        </div>
+    </div>
+
+    <!-- Button -->
+    <div id="confirmBookingContainer" style="width: 100%; justify-content: center; display: flex; gap: 10px">
+        <button id="bookNowButton" class="book-button">Book
+            Seat</button>
+    </div>
+
+    <!-- Modal Container -->
+    <div id="modalContainer" class="modal-container">
+        <div id="modal" class="modal">
+            <div id="modalClose" class="modal-close-button">
+                x
+            </div>
+            <div>
+                <form>
+                    <h1 style="font-size: 35px; margin-bottom: 20px; text-align: center; font-weight: 600;">
+                        Booking Your Flight
+                    </h1>
+                    <div>
+                        <label for="fname">First Name : </label>
+                        <input type="text" required id="fname">
+                    </div>
+                    <div>
+                        <label for="lname">Last Name : </label>
+                        <input id="lname" type="text" required>
+                    </div>
+                    <div>
+                        <label for="email">Email : </label>
+                        <input id="email" type="email" required>
+                    </div>
+                    <div>
+                        <label for="number">Conatact No. : </label>
+                        <input id="number" type="text" required>
+                    </div>
+                    <div>
+                        <label>Seat Numbers : </label> <br>
+                        <div id="seats">
+                        </div>
+                    </div>
+                    <button id="formSubmitButton" class="book-button" type="button">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(() => {
+            // Array for Selected Seats
+            var curSelectedSeats = [];
+            var data;
+            // Getting Flight ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const flightID = urlParams.get('flightID');
+
+            // Getting Booked Tickets from Localstorage
+            var preBooked = localStorage.getItem(flightID)?.split(',');
+
+            // Setting Cur Selected Seats to Localstorage
+            localStorage.setItem(flightID + "_temp", "");
+
+            // Fetching Data of Flight from JSON
+            var flight;
+            fetch("flights.json").then((res) => res.json()).then((res) => {
+                data = res;
+            }).then(() => {
+                data.map((d) => {
+                    if (d.flightID == flightID) flight = d;
+                })
+                createPlane(flight);
+                // select seats
+                $('.seat-div').click((e) => {
+                    if (!($(`#${e.currentTarget.id}`).hasClass('booked') || $(`#${e.currentTarget.id}`).hasClass('selected'))) {
+                        curSelectedSeats.push(e.currentTarget.id);
+                        var otherSelected = localStorage.getItem(flightID + "_temp")?.split(',');
+                        if (otherSelected?.includes(e.currentTarget.id)) {
+                            alert("Already booked by other User");
+                            $(`#${e.currentTarget.id}`).addClass('booked');
+                        } else {
+                            localStorage.setItem(flightID + "_temp", curSelectedSeats);
+                            $(`#${e.currentTarget.id}`).addClass('selected');
+                        }
+                    }
+                    else if ($(`#${e.currentTarget.id}`).hasClass('selected')) {
+                        curSelectedSeats.splice(curSelectedSeats.indexOf(e.currentTarget.id), 1);
+                        $(`#${e.currentTarget.id}`).removeClass('selected');
+                        localStorage.setItem(flightID + "_temp", curSelectedSeats);
+                    }
+                });
+
+                $('#bookNowButton').click((e) => {
+                    $('#modalContainer').css("display", "flex");
+                    if (curSelectedSeats.length == 0) {
+                        $('#formSubmitButton').attr('disabled', true);
+                        $('#seats').append(`No Seats Selected <br>`);
+                    } else {
+                        curSelectedSeats.map((d) => {
+                            $('#seats').append(`${d} <br>`);
+                            $('#formSubmitButton').attr('disabled', false);
+                        });
+                    }
+                });
+
+                $("#modalClose").click(() => {
+                    $('#seats').text(``);
+                    $('#modalContainer').css("display", "none");
+                });
+
+                
+                $('#formSubmitButton').click(() => {
+                    if (preBooked !== undefined && preBooked.length > 0)
+                    localStorage.setItem(flightID, preBooked.concat(curSelectedSeats));
+                    else
+                        localStorage.setItem(flightID, curSelectedSeats);
+
+                    const fname = $("#fname").val();
+                    const lname = $("#lname").val();
+                    const email = $("#email").val();
+                    const number = $("#number").val();
+                    const arrival = flight.from.city;
+                    const departure = flight.to.city;
+                    const duration = flight.duration;
+
+                    let eSeats = 0;
+                    let bSeats = 0;
+                    curSelectedSeats.map((ele) => {
+                        if (ele[0] === 'E') {
+                            eSeats++;
+                        } else {
+                            bSeats++;
+                        }
+                    })
+
+                    let bSeatPrice = flight.flightParts.part1.price * bSeats;
+                    let eSeatPrice = flight.flightParts.part2.price * eSeats;
+                    let total = eSeatPrice + bSeatPrice;
+                    let orderTotal = total + 1956 + 592 - 1000
+
+                    const data = {
+                        fname,
+                        lname,
+                        email,
+                        number,
+                        arrival,
+                        departure,
+                        duration,
+                        total,
+                        orderTotal,
+                        curSelectedSeats,
+                        flight
+                    }
+                    localStorage.setItem("Passenger", JSON.stringify(data));
+                    window.location.href = `ticket.html`;
+                });
+            });
+
+            // create plane
+            function createPlane(flightDetails) {
+                $('#flightID').text(flightDetails.flightID);
+                $('#airlineName').text(flightDetails.airline);
+                $('#departure').text(flightDetails.from.name + ' Airport, ' + flightDetails.from.city);
+                $('#departure_time').text(flightDetails.departure_time + 'H');
+                $('#duration_time').text(flightDetails.duration + ':00H ');
+                var arrival = flightDetails.to.name + ' Airport, ' + flightDetails.to.city;
+                $('#arrival').text(arrival);
+                for (var i = 0; i < flightDetails.flightParts.part1.seats.length; i++) {
+                    var div = $('<div>', { id: flightDetails.flightParts.part1.seats[i].seatID });
+                    div.addClass(`seat-div ${flightDetails.flightParts.part1.seats[i].isBooked ? 'booked' : ''}`);
+                    var svg = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="seat-svg-simple" viewBox="0 0 1024 1024"
+                                version="1.1">
+                                <path
+                                    d="M853.333333 392.106667l-98.133333 512a42.666667 42.666667 0 0 1-42.666667 34.56H298.666667a85.333333 85.333333 0 0 1-85.333334-62.72l-42.666666-155.306667a42.666667 42.666667 0 0 1 10.666666-42.666667l20.053334-19.626666a42.666667 42.666667 0 0 1 36.266666-12.373334l341.333334 48.64-5.12-32a170.666667 170.666667 0 0 1 26.453333-122.88l120.32-180.48a42.666667 42.666667 0 0 1 36.266667-17.92H810.666667a42.666667 42.666667 0 0 1 42.666666 50.773334zM810.666667 85.333333h-85.333334a42.666667 42.666667 0 0 0-42.666666 52.906667l21.333333 85.333333a42.666667 42.666667 0 0 0 42.666667 32.426667H810.666667a42.666667 42.666667 0 0 0 42.666666-42.666667V128a42.666667 42.666667 0 0 0-42.666666-42.666667z" />
+                            </svg>
+                `;
+                    div.append(svg);
+                    if (i <= 5) {
+                        $('#businessClassPart1').append(div);
+                    }
+                    else $('#businessClassPart2').append(div);
+                }
+                for (var i = 0; i < flightDetails.flightParts.part2.seats.length; i++) {
+                    var div = $('<div>', { id: flightDetails.flightParts.part2.seats[i].seatID });
+                    div.addClass(`seat-div ${flightDetails.flightParts.part2.seats[i].isBooked ? 'booked' : ''}`);
+                    var svg = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="seat-svg-simple" viewBox="0 0 1024 1024"
+                                version="1.1">
+                                <path
+                                    d="M853.333333 392.106667l-98.133333 512a42.666667 42.666667 0 0 1-42.666667 34.56H298.666667a85.333333 85.333333 0 0 1-85.333334-62.72l-42.666666-155.306667a42.666667 42.666667 0 0 1 10.666666-42.666667l20.053334-19.626666a42.666667 42.666667 0 0 1 36.266666-12.373334l341.333334 48.64-5.12-32a170.666667 170.666667 0 0 1 26.453333-122.88l120.32-180.48a42.666667 42.666667 0 0 1 36.266667-17.92H810.666667a42.666667 42.666667 0 0 1 42.666666 50.773334zM810.666667 85.333333h-85.333334a42.666667 42.666667 0 0 0-42.666666 52.906667l21.333333 85.333333a42.666667 42.666667 0 0 0 42.666667 32.426667H810.666667a42.666667 42.666667 0 0 0 42.666666-42.666667V128a42.666667 42.666667 0 0 0-42.666666-42.666667z" />
+                            </svg>
+                `;
+                    div.append(svg);
+                    if (i <= 7) {
+                        $('#economyPart1').append(div);
+                    }
+                    else if (i > 7 && i <= 15) $('#economyPart2').append(div);
+                    else if (i > 15 && i <= 23) $('#economyPart3').append(div);
+                    else if (i > 23 && i <= 31) $('#economyPart4').append(div);
+                }
+                if (preBooked !== undefined && preBooked.length > 0) {
+                    preBooked.map((d) => {
+                        $(`#${d}`).addClass('booked');
+                    })
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

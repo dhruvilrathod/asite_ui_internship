@@ -1,0 +1,389 @@
+[
+    {
+        "id": 31,
+        "first_name": "Abhishek",
+        "last_name": "Tiwari",
+        "email": "abhishek.tiwari17338@marwadieducation.edu.in",
+        "mobile_number": "7279817958",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 9,
+        "first_name": "Adarsh",
+        "last_name": "Ashodiya",
+        "email": "aadi.ashodiya@gmail.com",
+        "mobile_number": "8140662420",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 23,
+        "first_name": "Adiya",
+        "last_name": "Solanki",
+        "email": "19it137@charusat.edu.in",
+        "mobile_number": "6358332059",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 43,
+        "first_name": "Armika",
+        "last_name": "Rakholiya",
+        "email": "armika0862002@gmail.com",
+        "mobile_number": "8238175799",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 11,
+        "first_name": "Ayush",
+        "last_name": "Pandit",
+        "email": "ayushpandit76@gmail.com",
+        "mobile_number": "8732982886",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 4,
+        "first_name": "Bhargav",
+        "last_name": "Dhamecha",
+        "email": "ce.bhargav@gmail.com",
+        "mobile_number": "9328260311",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 22,
+        "first_name": "Bhavya",
+        "last_name": "Shah",
+        "email": "19dcs122@charusat.edu.in",
+        "mobile_number": "7778009929",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 45,
+        "first_name": "Dhruvil",
+        "last_name": "Rathod",
+        "email": "dhruvilrathod2001@gmail.com",
+        "mobile_number": "9723044104",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 20,
+        "first_name": "Disha",
+        "last_name": "Rabadiya",
+        "email": "disharabadiya26@gmail.com",
+        "mobile_number": "7359607167",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 13,
+        "first_name": "Drashti",
+        "last_name": "Kansagara",
+        "email": "drashtikansagara@gmail.com",
+        "mobile_number": "9512702390",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 32,
+        "first_name": "Harsh",
+        "last_name": "Maheshwari",
+        "email": "maheshwariharsh38@gmail.com",
+        "mobile_number": "6378667429",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 41,
+        "first_name": "Harsh",
+        "last_name": "Patel",
+        "email": "harshpatel1628@gmail.com",
+        "mobile_number": "9558605790",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 27,
+        "first_name": "Harshil",
+        "last_name": "Pethani",
+        "email": "harshilpethani8990@gmail.com",
+        "mobile_number": "8530321640",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 24,
+        "first_name": "Jaimin",
+        "last_name": "Prajapati",
+        "email": "19ce113@charusat.edu.in",
+        "mobile_number": "7698973905",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 12,
+        "first_name": "Jaimini",
+        "last_name": "Desai",
+        "email": "jaiminidesai2000@gmail.com",
+        "mobile_number": "9624481637",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 44,
+        "first_name": "Jay",
+        "last_name": "Ghetia",
+        "email": "jay.g2@ahduni.edu.in",
+        "mobile_number": "9426470268",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 21,
+        "first_name": "Jaydeep",
+        "last_name": "Ghevariya",
+        "email": "jaydeepghevariya11@gmail.com",
+        "mobile_number": "8780507471",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 7,
+        "first_name": "Jayraj",
+        "last_name": "Chocha",
+        "email": "jayraj.chocha24@gmail.com",
+        "mobile_number": "9904985461",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 28,
+        "first_name": "Jeet",
+        "last_name": "Bhatt",
+        "email": "bhattjeeet@gmail.com",
+        "mobile_number": "94295 49292",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 10,
+        "first_name": "Jignesh",
+        "last_name": "Tanna",
+        "email": "jigneshtanna460@gmail.com",
+        "mobile_number": "8155928976",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 8,
+        "first_name": "Kanani",
+        "last_name": "shrey",
+        "email": "s.",
+        "mobile_number": "7575844735",
+        "type": "UI",
+        "batch": "Batch 2"
+    },
+    {
+        "id": 5,
+        "first_name": "Krupa",
+        "last_name": "Ladani",
+        "email": "ladanikrupa@gmail.com",
+        "mobile_number": "7801978399",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 34,
+        "first_name": "Lency",
+        "last_name": "Bhalodiya",
+        "email": "190303105078@paruluniversity.ac.in",
+        "mobile_number": "7434917193",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 15,
+        "first_name": "Miral",
+        "last_name": "Sangani",
+        "email": "miralpatel19819@gmail.com",
+        "mobile_number": "9328438883",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 25,
+        "first_name": "Mitesh",
+        "last_name": "Kateliya",
+        "email": "miteshkateliya10@gmail.com",
+        "mobile_number": "9687800985",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 37,
+        "first_name": "Mohammed",
+        "last_name": "Muzammil",
+        "email": "muzammil.1242002@gmail.com",
+        "mobile_number": "7567867714",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 30,
+        "first_name": "Nandini",
+        "last_name": "Seladiya",
+        "email": "nandiniseladiya19@gmail.com",
+        "mobile_number": "9328734633",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 29,
+        "first_name": "Naol",
+        "last_name": "Melesse",
+        "email": "naolmelesse91@gmail.com",
+        "mobile_number": "70693 85670",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 2,
+        "first_name": "Parth",
+        "last_name": "Savajadiya",
+        "email": "parthsavajadiya7443@gmail.com",
+        "mobile_number": "9909388561",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 16,
+        "first_name": "Piparava",
+        "last_name": "smit",
+        "email": "smitpiparva11@gmail.com",
+        "mobile_number": "8866793540",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 36,
+        "first_name": "Pritam",
+        "last_name": "Prakash",
+        "email": "210511211024@paruluniversity.ac.in",
+        "mobile_number": "6355 558 644",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 38,
+        "first_name": "Rahil",
+        "last_name": "Acharya",
+        "email": "rahilshiv3@gmail.com",
+        "mobile_number": "9979631883",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 39,
+        "first_name": "Raj",
+        "last_name": "Rabari",
+        "email": "rajrabari8667@gmail.com",
+        "mobile_number": "9328127183",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 17,
+        "first_name": "Rajan",
+        "last_name": "Pandya",
+        "email": "pandyarajan14@gmail.com",
+        "mobile_number": "7069648344",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 33,
+        "first_name": "Sanskar",
+        "last_name": "Maroo",
+        "email": "sanskarmaroo@gmail.com",
+        "mobile_number": "6377583296",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 40,
+        "first_name": "Satpalsinh",
+        "last_name": "Rana",
+        "email": "satpalsinh777@gmail.com",
+        "mobile_number": "9265431712",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 1,
+        "first_name": "Shubham",
+        "last_name": "Ramavat",
+        "email": "shubham.ramavat83@gmail.com",
+        "mobile_number": "8849764758",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 14,
+        "first_name": "Suraj",
+        "last_name": "Kushvaha",
+        "email": "surajkushvaha04@gmail.com",
+        "mobile_number": "7984431487",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 18,
+        "first_name": "Swapnil",
+        "last_name": "Kathiriya",
+        "email": "work.swapnilpatel@gmail.com",
+        "mobile_number": "9016824299",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 3,
+        "first_name": "Tithi",
+        "last_name": "J.",
+        "email": "Hariyani",
+        "mobile_number": "7041426422",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 35,
+        "first_name": "Urmil",
+        "last_name": "Rupareliya",
+        "email": "210511214030@paruluniversity.ac.in",
+        "mobile_number": "7434917193",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 6,
+        "first_name": "Vanshika",
+        "last_name": "Doshi",
+        "email": "vanshika176doshi@gmail.com",
+        "mobile_number": "7433096379",
+        "type": "UI",
+        "batch": "Batch 1"
+    },
+    {
+        "id": 26,
+        "first_name": "Yash",
+        "last_name": "Ghori",
+        "email": "yashghori2804@gmail.com",
+        "mobile_number": "7048144030",
+        "type": "UI",
+        "batch": "Batch 1"
+    }
+]

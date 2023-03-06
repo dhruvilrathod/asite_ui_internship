@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Assignment (Group 4)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div style="height: auto; width: 100%; margin: 20px 0 20px 0;">
+        <div style="width:100%; font-size: x-large; margin: 20px 0 20px 0; text-align: center; font-weight: bold;">
+            JS Assignment Group 4 (Seach Value and Show Result)
+        </div>
+        <div id="search_form"
+            style="width: 100%; display: flex; gap: 10px; justify-content: center; align-items: center;">
+            <input type="text" name="search" id="search" oninput="search()" placeholder="Search Here...">
+        </div>
+    </div>
+    <div style="max-height: 80vh; width: 80vw; overflow-y: scroll; margin: 0 auto 0 auto; background-color: white;">
+        <table id="data_table" style="height: 100%; width: 100%; margin: 0 auto 20px auto; border-collapse: collapse;">
+            <thead>
+                <tr style="height: 50px; font-size: larger; position: sticky;">
+                    <th style="width: 100px;">ID</th>
+                    <th style="width: 300px;">First Name</th>
+                    <th style="width: 300px;">Last Name</th>
+                    <th style="width: 1000px;">Email</th>
+                    <th style="width: 200px;">Mobile Number</th>
+                    <th style="width: 100px;">Type</th>
+                    <th style="width: 200px;">Batch</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="fail" style="text-align: center; font-size: larger; margin: 20px; display: none;">
+            <td colspan="7">No Data Available.</td>
+        </div>
+
+    </div>
+
+    <script>
+        var data_array = [];
+        var search_value = '';
+
+        fetch("./MOCK_DATA.json").then((res) => res.json()).then((res) => {
+            data_array = res;
+            if (data_array.length > 0)
+                createTable(data_array);
+            else document.getElementById('fail').style.display = "block";
+
+        });
+
+        function createTable(data) {
+            var table = document.getElementById('data_table');
+            emptyTable();
+            data.map((d, i) => {
+                var row = table.insertRow(i + 1);
+                row.classList.add('rows');
+                var j = 0;
+                for (var x in d) {
+                    var cell = row.insertCell(j);
+                    var cellText = '';
+                    if (search_value != '') {
+                        if (d[x].toString().toUpperCase().includes(search_value.toUpperCase())) {
+                            var from = d[x].toString().toUpperCase().indexOf(search_value.toUpperCase());
+                            var to = from + search_value.length;
+                            var part1 = d[x].toString().substring(0, from);
+                            var part2 = `<span style="background-color: yellow">${d[x].toString().substring(from, to)}</span>`;
+                            var part3 = d[x].toString().substring(to, d[x].length);
+                            cellText = part1 + part2 + part3;
+                        }
+                        else {
+                            cellText = d[x];
+                        }
+                    }
+                    else if(search_value == '') {
+                        cellText = d[x];
+                    }
+                    cell.innerHTML = cellText;
+                    j++;
+                }
+            });
+        }kjhgf
+
+        function emptyTable() {
+            var table = document.getElementById('data_table');
+            var i = 1;
+            while (i < table.rows.length) {
+                table.deleteRow(1);
+            }
+        }
+
+        function search() {
+            search_value = document.getElementById('search').value;
+            if (search_value != '' || search_value != null) {
+                if (data_array != undefined || data_array.length != 0) {
+                    search_value = search_value.toString().toUpperCase();
+
+                    var result = data_array.filter((r) => {
+                        return (
+                            r.id.toString().toUpperCase().includes(search_value.toUpperCase()) || r.first_name.toUpperCase().includes(search_value.toUpperCase()) || r.last_name.toUpperCase().includes(search_value.toUpperCase()) || r.email.toUpperCase().includes(search_value.toUpperCase()) ||
+                            r.mobile_number.toUpperCase().includes(search_value.toUpperCase()) || r.type.toUpperCase().includes(search_value.toUpperCase()) || r.batch.toUpperCase().includes(search_value.toUpperCase())
+                        );
+                    });
+                    if (result.length > 0) {
+                        createTable(result);
+                        document.getElementById('fail').style.display = "none";
+                    }
+                    else {
+                        emptyTable();
+                        document.getElementById('fail').style.display = "block";
+                    };
+                }
+                else document.getElementById('fail').style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>

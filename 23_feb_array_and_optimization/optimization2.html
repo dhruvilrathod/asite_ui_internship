@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimization</title>
+</head>
+
+<body>
+    <button id="one">Button 1</button>
+    <button id="two">Button 2</button>
+    <script>
+        var one = document.querySelector("#one");
+        var two = document.querySelector("#two");
+        function callBackExample() {
+            one.removeEventListener("", callBackExample);
+        }
+        one.addEventListener('mouseover', function () {
+             two = document.querySelector("#two");
+            if(two){
+                two.remove();
+                console.log(two); // will print the html even after deletion
+            }
+        });
+        two.addEventListener('mouseover', function () {
+             one = document.querySelector("#one");
+            if(one){
+                one.remove();
+                console.log(one); // will print the html even after deletion
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Poppins:wght@300&family=Raleway&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: rgb(205, 203, 255);
+    background: linear-gradient(90deg, rgba(205, 203, 255, 1) 0%, rgba(110, 208, 255, 1) 78%, rgba(80, 254, 255, 1) 100%);
+}
+
+#search {
+    height: 5vh;
+    width: 50%;
+    padding: 0 0 0 10px;
+    font-size: larger;
+    border-radius: 10px;
+    border: solid 1px;
+}
+
+#search:focus{
+    outline-offset: 1px;
+    outline-color: blue;
+}
+
+tr:nth-child(1) th {
+    background-color: darkblue;
+    color: aliceblue;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+tr {
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+}
+
+table {
+    border-radius: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: white;
+}
+
+tr:nth-child(odd) {
+    background-color: aliceblue;
+}
+
+tr:hover {
+    background-color:lightgray;
+}
+
+.rows {
+    height: 40px;
+    font-size: larger;
+}

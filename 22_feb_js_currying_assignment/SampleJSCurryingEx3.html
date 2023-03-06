@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+	<script>
+		const list = [
+			{
+				id: 1,
+				name: 'Sonal',
+				email: 'sonal@test.com',
+			},
+			{
+				id: 2,
+				name: 'Patel',
+				email: 'patel@gmail.com',
+			},
+			{
+				id: 3,
+				name: 'Alka',
+				email: 'alka@yahoo.com',
+			},
+			{
+				id: 4,
+				name: 'Priya',
+				email: 'priya@test.com',
+			},
+		];
+		//Step - 1
+
+		const filterByName = (l) => {
+			return function (name) {
+				return l.filter((item) => item.name !== name);
+			}
+		}
+		console.log(filterByName(list)('Alka'));
+
+	</script>
+</body>
+
+</html>

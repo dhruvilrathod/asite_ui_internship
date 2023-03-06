@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Book Now - Travel World</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                Travel <span>World</span>
+            </a>
+        </div>
+        <div class="menus">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a class="active" href="booknow.html">
+                        Book Now
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="bookNow">
+        <div class="left">
+            <h2>
+                Explore The World
+            </h2>
+            <h1>
+                Start Planning Your <span> Dream Trip Today!</span>
+            </h1>
+            <p>
+                Travel has helped us to understand the meaning of life and it has helped us become better people. Each
+                time we travel, we see the world with new eyes.
+            </p>
+            <div class="form">
+                <div class="fields">
+                    <input id="boarding" autocomplete="off" placeholder="From" list="fromCities" name="fromCities">
+                    <datalist id="fromCities">
+                    </datalist>
+
+                    <input id="destination" autocomplete="off" placeholder="To" list="toCities" name="toCities">
+                    <datalist id="toCities">
+                    </datalist>
+                </div>
+                <div class="fields">
+                    <input id="ticketType" placeholder="Ticket Type" list="ticketTypes" name="ticketTypes">
+                    <datalist id="ticketTypes">
+                        <option value="Economy">
+                        <option value="Business">
+                    </datalist>
+                    <input type="date" id="journeyDate" min="2023-02-24">
+                </div>
+                <button onclick="SearchFlight()">Find Flights</button>
+            </div>
+        </div>
+        <div class="right">
+            <div class="round">
+                <img src="Assets/tourist.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="flights availableFlights">
+        <h1 class="title">
+            Available Flights for Your Journey
+        </h1>
+        <div class="flightCards" id="flightCards">
+        </div>
+    </section>
+
+    <section class="flights noFlights">
+        <h1 class="title">
+            Available Flights for Your Journey
+        </h1>
+        <div class="flightCards">
+            <div class="flight-card">
+                <h2 class="flightTitle">
+                    Sorry, No Flights Available
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2023 Travel World. All rights reserved.
+    </footer>
+</body>
+
+<script type="text/javascript">
+
+    var Flights = [];
+
+    function addFromCities(city) {
+        $('#fromCities').append(`<option value="${city}">`);
+    }
+    function addToCities(city) {
+        $('#toCities').append(`<option value="${city}">`);
+    }
+
+    $(document).ready(function () {
+        fetchFlights();
+        var curnetDate = new Date().toISOString().split("T")[0];
+        $("#journeyDate").attr("min", curnetDate);
+    });
+
+    const fetchFlights = async () => {
+        try {
+            const response = await fetch("flights.json");
+            const data = await response.json();
+
+            Flights = data;
+
+            for (let i = 0; i < Flights.length; i++) {
+                addFromCities(Flights[i].from.city)
+                addToCities(Flights[i].to.city)
+            }
+
+        } catch (error) {
+            console.log("error:", error.message)
+        }
+    }
+
+    function SearchFlight() {
+        var Boarding_Point = $("#boarding").val();
+        var Destination = $("#destination").val();
+        var journeyDate = $("#journeyDate").val();
+        var ticketType = $("#ticketType").val();
+
+        function pushFlight(flight) {
+            $('#flightCards').append(`<div class="flight-card">
+                    <h2 class="flightTitle">
+                        ${flight.airline}
+                    </h2>
+                    <h4 class="flightCode">
+                        ${flight.flightID}
+                    </h4>
+                <div class="flightDetails">
+                    <div>
+                        <h3>
+                            From
+                        </h3>
+                        <h2 class="boarding-point">
+                            ${flight.from.name} Airport
+                        </h2>
+                    </div>
+                    <img class="flight-icon" src="Assets/flight.png" alt="">
+                    <div>
+                        <h3>
+                            To
+                        </h3>
+                        <h2 class="destination">
+                            ${flight.to.name} Airport
+                        </h2>
+                    </div>
+                    <div>
+                        <h3>
+                            Departure Time
+                        </h3>
+                        <h2>
+                            ${flight.departure_time}
+                        </h2>
+                    </div>
+                    <a href="plane.html?flightID=${flight.flightID}" class="book">Book Now</a>
+                </div>
+            </div>
+                `);
+        }
+
+        if (Boarding_Point == "" || Destination == "" || ticketType == "" || journeyDate == "") {
+            alert("Please Enter all Field Before Searching");
+        } else {
+            const data = Flights.filter(data => {
+                return data.from.city.toLowerCase().split(" ").join("") == Boarding_Point.toLowerCase().split(" ").join("") && data.to.city.toLowerCase().split(" ").join("") == Destination.toLowerCase().split(" ").join("")
+            })
+
+            if (data.length === 0) {
+                $(".noFlights").css("display", "flex");
+                $(".availableFlights").css("display", "none");
+            } else {
+                $(".noFlights").css("display", "none");
+                $(".availableFlights").css("display", "flex");
+
+                for (let i = 0; i < data.length; i++) {
+                    pushFlight(data[i]);
+                }
+            }
+        }
+    }
+</script>
+
+</html>
