@@ -1,0 +1,10 @@
+<div class="card">
+    <img [src]="product.url" alt="Denim Jeans" style="width:100%">
+    <h1>{{product.name}}</h1>
+    <p class="price">${{product.price}}</p>
+    <div>
+        <button type="button" title="increase" (click)="icreaseQuantity()">Add</button>
+        {{product.quantity}}
+        <button type="button" title="decrease" (click)="decreaseQuantity()">Delete</button>
+    </div>
+</div>

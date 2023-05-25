@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: rgb(234, 233, 233);
+}
+
+body .navbar {
+    padding: 0 100px;
+    /* border: 2px solid red;    */
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222222;
+    background-color: white;
+    color: #222222;
+    z-index: 5;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+body .navbar .logo a {
+    text-decoration: none;
+    color: white;
+    color: #222222;
+}
+
+body .navbar .logo {
+    font-size: 45px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+body .navbar .logo span {
+    color: teal;
+}
+
+
+body .navbar .menus ul {
+    display: flex;
+    /* border: 2px solid red; */
+    list-style: none;
+    gap: 50px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+body .navbar .menus ul a {
+    text-decoration: none;
+    color: white;
+    color: #222222;
+    letter-spacing: 1px;
+    transition: color ease 600ms;
+    font-weight: 600;
+}
+
+body .navbar .menus ul a:hover {
+    color: teal;
+}
+
+body .navbar .menus ul a.active {
+    color: teal;
+}
+
+section {
+    display: flexbox;
+    width: 70%;
+    margin: auto;
+    flex-wrap: wrap;
+    padding: 50px;
+    /* border: 2px solid red; */
+}
+
+.singleBlog {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 20px;
+    /* border: 2px solid red; */
+    overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.singleBlog img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.blogDetails {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 20px;
+}
+
+
+.blogDetails .topbar .country {
+    font-size: 20px;
+    color: teal;
+}
+
+.blogDetails .user {
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.blogDetails .user svg {
+    height: 70px;
+    width: 70px;
+    border: 2px solid gray;
+    border-radius: 50%;
+}
+
+.blogDetails .user .details {
+    /* border: 2px solid red; */
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blogDetails h3 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.blogDetails h5 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.blogDetails .desc {
+    font-size: 18px;
+    text-align: justify;
+}
+
+.blogDetails .btnBar {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.blogDetails .btnBar button {
+    padding: 10px 20px;
+    outline: none;
+    cursor: pointer;
+    width: 70px;
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.7s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blogDetails .btnBar button svg {
+    height: 30px;
+    width: 30px;
+}
+
+.blogDetails .btnBar button {
+    padding: 10px 20px;
+    outline: none;
+    cursor: pointer;
+    width: 120px;
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.7s ease;
+}
+
+.blogDetails .btnBar .approve {
+    border: 2px solid green;
+    background-color: green;
+}
+
+.blogDetails .btnBar .approve:hover {
+    border: 2px solid green;
+    background-color: white;
+    color: green;
+}
+
+.blogDetails .btnBar .reject {
+    border: 2px solid red;
+    background-color: white;
+    color: red;
+}
+
+.blogDetails .btnBar .reject:hover {
+    border: 2px solid red;
+    background-color: red;
+    color: white;
+}

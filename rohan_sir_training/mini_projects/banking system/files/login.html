@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="form-container">
+        <form id="loginForm" class="my-form">
+            <div class="form-title">Login</div>
+            <div class="form-fields-container">
+                <div class="form-field-container">
+                    <label for="email">Email ID</label>
+                    <br>
+                    <input class="form-fields" type="email" title="email" name="email" id="email" required>
+                </div>
+                <div class="form-field-container">
+                    <label for="email">Password</label>
+                    <br>
+                    <input class="form-fields" type="password" title="password" name="password" id="password" required>
+                </div>
+                <div>
+                    <button type="submit" onclick="submitLogin(event)" class="form-button">Log In</button>
+                </div>
+                <a href="sign-up.html">Sign Up</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="./DBHelpers/LoginDBHelper.js"></script>
+    <script src="./DBHelpers/FundDBHelper.js"></script>
+    <script src="./DBHelpers/UserDBHelper.js"></script>
+    <script src="./Models/Fund.js"></script>
+    <script src="./Models/User.js"></script>
+    <script src="./Models/UserCredentials.js"></script>
+
+    <script>
+
+        // creating instance of db helper
+        const loginDB = new LoginDBHelper();
+
+        window.onload = function () {
+            document.getElementById('loginForm').addEventListener('submit', (e) => e.preventDefault());
+        }
+
+        function submitLogin(e) {
+            var form = document.getElementById('loginForm');
+            var formData = new FormData(form);
+
+            // creating new credential object
+            let loginCredentials = new UserCredentials();
+
+            for (let [key, value] of formData) {
+                if (key == 'password') value = btoa(value);
+                loginCredentials[key] = value
+            }
+
+            loginDB.getLoginDataVerification(loginCredentials, (status) => {
+                if(!status) {
+                    alert('Invalid Login Credentials. Try Again.');
+                    form.reset()
+                }
+                else {
+                    localStorage.setItem('active-user', loginCredentials.email);
+                    loginDB.updateLoginStatus(loginCredentials.email, true);
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

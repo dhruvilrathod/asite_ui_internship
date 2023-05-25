@@ -1,0 +1,20 @@
+<div *ngIf="product !== undefined" class="card">
+    <div>
+        <div>Name: {{product.name}}</div>
+        <div>Price: {{product.price | purepipePrice}}</div>
+        <div>Type: {{product.type}}</div>
+        <div>Owner: {{product.owner}}</div>
+        <div>Contact: {{product.contact}}</div>
+        <div>Email: {{product.email}}</div>    
+    </div>
+    <hr>
+    <div>
+        <b>product to json:</b>
+        <br>
+        {{product | impurepipeJsonString: 'json'}}
+        <br>
+        <b>json to string:</b>
+        <br>
+        {{product | impurepipeJsonString: 'json' | impurepipeJsonString: 'string'}}
+    </div>
+</div>

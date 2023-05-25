@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Icreame Project Group 1</title>
+</head>
+
+<body>
+    <div class="image-container">
+        <img class="banner-image" src="https://img.freepik.com/premium-vector/ice-cream-design-logo_187482-458.jpg"
+            alt="">
+    </div>
+    <div class="main-container">
+        <div class="sub-container">
+            Choose Flavour:
+            <br>
+            <button type="button" id="vanilla" title="Vanilla" class="sub-button"
+                onclick="changeFlavour('Vanilla')">Vanilla</button>
+            <br>
+            <button type="button" id="butterscotch" title="Butterscotch" class="sub-button"
+                onclick="changeFlavour('Butterscotch')">Butterscotch</button>
+            <br>
+            <button type="button" id="rajbhog" title="Rajbhog" class="sub-button"
+                onclick="changeFlavour('Rajbhog')">Rajbhog</button>
+            <br>
+            <button type="button" id="chocolate" title="Chocolate" class="sub-button"
+                onclick="changeFlavour('Chocolate')">Chocolate</button>
+            <div class="sub-acknowlegdgement">
+                You chose flavour: <span id="flavourName"></span>
+                <br>
+                <div style="display: flex; justify-content: center;">
+                    Emoji chosen with the help of decorator:
+                    <div id="emojiElement">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sub-container">
+            Choose Topping:
+            <br>
+            <button type="button" id="chocochips" title="chocochips" class="sub-button"
+                onclick="changeTopping('Chocochips')">Chocochips</button>
+            <br>
+            <button type="button" id=" browniebites" title=" Brownie Bites" class="sub-button"
+                onclick="changeTopping('Brownie Bites')"> Brownie Bites</button>
+            <br>
+            <button type="button" id="caramelcorn" title="Caramel Corn" class="sub-button"
+                onclick="changeTopping('Caramel Corn')">Caramel Corn</button>
+            <br>
+            <button type="button" id="Pretzels" title="Pretzels" class="sub-button"
+                onclick="changeTopping('Pretzels')">Pretzels</button>
+            <div class="sub-acknowlegdgement">
+                You chose topping: <span id="topping-acknowledgment">Chocochips</span>
+            </div>
+        </div>
+    </div>
+    <script src="icecream.js"></script>
+
+</body>
+
+</html>

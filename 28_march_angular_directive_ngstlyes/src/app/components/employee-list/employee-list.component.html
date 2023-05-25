@@ -1,0 +1,21 @@
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Contact</th>
+        <th>Level</th>
+        <th>Ranking</th>
+    </tr>
+    <tr *ngFor="let e of employees" [ngClass]="{'devops': e.type == 'Dev Ops', 'developer': e.type == 'Developer', 'tester': e.type == 'Tester'}">
+        <td>{{e.id}}</td>
+        <td>{{e.name}}</td>
+        <td>{{e.type}}</td>
+        <td>
+            <input type="text" [value]="e.contact" (change)="contactChangeFunction(e.name, $event)">
+        </td>
+        <td>{{e.level}}</td>
+        <td id="{{e.id}}" [appEmployeeRanking]="[e.level, e.type, e.id]">
+        </td>
+    </tr>
+</table>

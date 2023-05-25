@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <div class="form-container">
+        <form id="signupForm" class="my-form">
+            <div class="form-title">Sign Up</div>
+            <div class="form-fields-container">
+                <div class="form-field-container">
+                    <label for="name">Name</label>
+                    <br>
+                    <input class="form-fields" type="text" title="name" name="name" id="name" required>
+                </div>
+                <div class="form-field-container">
+                    <label for="email">Email ID</label>
+                    <br>
+                    <input class="form-fields" type="email" title="email" name="email" id="email" required>
+                </div>
+                <div class="form-field-container">
+                    <label for="email">Password</label>
+                    <br>
+                    <input class="form-fields" type="password" title="password" name="password" id="password" required>
+                </div>
+                <div>
+                    <button type="submit" onclick="submitSignUp(event)" class="form-button">Sign Up</button>
+                </div>
+                <a href="login.html">Login</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="./DBHelpers/LoginDBHelper.js"></script>
+    <script src="./DBHelpers/FundDBHelper.js"></script>
+    <script src="./DBHelpers/UserDBHelper.js"></script>
+    <script src="./Models/Fund.js"></script>
+    <script src="./Models/User.js"></script>
+    <script src="./Models/UserCredentials.js"></script>
+    
+    <script>
+        const loginDB = new LoginDBHelper();
+        const userDB = new UserDBHelper();
+
+        var user = new User();
+
+        window.onload = function () {
+            document.getElementById('signupForm').addEventListener('submit', (e) => e.preventDefault());
+        }
+
+        function submitSignUp(e) {
+            var form = document.getElementById('signupForm');
+            var formData = new FormData(form);
+            let loginCredentials = new UserCredentials();
+
+            for (let [key, value] of formData) {
+                if (key == 'name' && value != undefined && value != null && value != '') user[key] = value;
+                else if (key == 'email' && value != undefined && value != null && value != '') {
+                    user[key] = value;
+                    loginCredentials[key] = value
+                }
+                else if (key == 'password' && value != undefined && value != null && value != '') loginCredentials[key] = btoa(value);
+                else {
+                    alert('Enter valid data');
+                    return
+                }
+
+            }
+
+            console.log(loginCredentials);
+
+            loginDB.getLoginData(loginCredentials.email, (status) => {
+                if (status) {
+                    alert('User Already Exists.');
+                    form.reset();
+                }
+                else {
+                    user.currentFund = 0;
+                    loginDB.insertLoginData(loginCredentials);
+                    userDB.insertUserData(user);
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

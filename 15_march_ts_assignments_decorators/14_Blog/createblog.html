@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="createblog.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <title>Create Blog</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        Blog <span>Media</span>
+      </a>
+    </div>
+    <div class="menus">
+      <ul>
+        <li>
+          <a href="index.html">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="pendingblog.html">
+            Pending Blog
+          </a>
+        </li>
+        <li>
+          <a class="active" href="createblog.html">
+            Create Blog
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="formContainer">
+    <h1 class="title">
+      Enter your Blog Details
+    </h1>
+    <form id="createBlogForm">
+      <div>
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Enter your name">
+      </div>
+
+      <div>
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Enter your last name">
+      </div>
+
+      <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="lastname" placeholder="Enter Blog title">
+      </div>
+
+      <div>
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="india">India</option>
+          <option value="canada">Canada</option>
+          <option value="uk">UK</option>
+          <option value="australia">Australia</option>
+          <option value="usa">USA</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Enter your blog Description..."></textarea>
+      </div>
+      
+      <input type="submit" id="submitForm" onclick="submitBlogDetails()" value="Submit">
+    </form>
+  </div>
+
+</body>
+
+<script src="createBlog.js"></script>
+
+</html>

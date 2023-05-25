@@ -1,0 +1,32 @@
+<form #addProductForm>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name">
+    </div>
+    <div>
+        <label for="price">Price:</label>
+        <input type="number" name="price">
+    </div>
+    <div>
+        <label for="type">Type:</label>
+        <select appProductCreation name="type" id="type">
+            <option value="Mobile">Mobile</option>
+            <option value="Laptop">Laptop</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+    <div>
+        <label for="owner">Owner:</label>
+        <input type="text" name="owner">
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email">
+    </div>
+    <div>
+        <label for="contact">Contact:</label>
+        <input type="number" name="contact">
+    </div>
+
+    <button type="button" (click)="getFormData(addProductForm);">Add</button>
+</form>

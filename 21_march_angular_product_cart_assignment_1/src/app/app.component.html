@@ -1,0 +1,9 @@
+<app-product [onSale]="onSale"></app-product>
+<br>
+<br>
+<div style="text-align: center; font-size: xx-large;">
+  Admin: On Sale? {{onSale}}
+  <br>
+  <button title="on sale" (click)="onSale = true">Set On Sell</button>
+  <button title="not on sale" (click)="onSale = false">Unset On Sell</button>
+</div>

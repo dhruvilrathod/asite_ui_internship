@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Software</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="invalidMessage">
+        Session timeout or invalid login
+        <br>
+        <a href="login.html">Log In</a>
+    </div>
+
+
+    <div id="validSession">
+
+        <div id="header">
+            <div id="header-username">
+                Welcome, <span id="user-name"></span>
+            </div>
+            <div>
+                <button type="button" onclick="logoutUser()">Log Out</button>
+            </div>
+        </div>
+
+        <div id="user-section">
+            <div>
+                Balance: <span id="user-current-fund"></span>
+            </div>
+            <div>
+                Change current fund value:
+                <input type="number" class="my-input" id="change-user-current-fund" name="change-user-current-fund" min="0" required>
+                <br>
+                <button type="button" onclick="updateBalance()">Update Balance</button>
+            </div>
+        </div>
+
+        <div id="user-section">
+            Transfer to:
+            <select class="my-input" name="transfer-name" id="transfer-name">
+            </select>
+            <br>
+            Amount: <input class="my-input" id="transfer-amount" name="transfer-amount" type="number" min="0" required>
+            <br>
+            <button type="button" onclick="transferFund()">Transfer</button>
+
+        </div>
+
+        <div id="transaction-history">
+        </div>
+    </div>
+
+    <script src="./DBHelpers/LoginDBHelper.js"></script>
+    <script src="./DBHelpers/FundDBHelper.js"></script>
+    <script src="./DBHelpers/UserDBHelper.js"></script>
+    <script src="./Models/Fund.js"></script>
+    <script src="./Models/User.js"></script>
+    <script src="./Models/UserCredentials.js"></script>
+
+    <script>
+
+        // initialization
+        const activityEvents = ['mousedown', 'mousemove', 'keydown', 'scroll', 'touchstart'];
+        const loginDB = new LoginDBHelper();
+        const userDB = new UserDBHelper();
+        const fundDB = new FundDBHelper();
+        let user = new User();
+
+        // get data of current user
+        userDB.getUserData(localStorage.getItem('active-user'), (d) => {
+            user.currentFund = d.current_fund;
+            user.name = d.name;
+            user.email = d.email;
+            fundDB.getFundData(user.email, (f) => {
+                for (var i = 0; i < f.length; i++) {
+                    user.fundTransferHistory.push(f[i]);
+                }
+                createTransferUTable(user);
+            });
+            document.getElementById('change-user-current-fund').value = user.currentFund;
+        });
+
+
+        // get email of all users for fund transfer
+        userDB.getAllUser((d) => {
+            for (var i = 0; i < d.length; i++) {
+                if (d[i].email !== localStorage.getItem('active-user')) {
+                    document.getElementById('transfer-name').innerHTML += `<option value="${d[i].email},${d[i].name}">${d[i].name}</option>`
+                }
+            }
+        });
+
+        // create transaction history table
+        function createTransferUTable(user) {
+            var table = document.createElement('table');
+            table.setAttribute('id', 'transfer-history-table');
+            var tr = document.createElement('tr');
+            var from = document.createElement('th');
+            from.innerText = 'From';
+            var to = document.createElement('th');
+            to.innerText = 'To';
+            var amount = document.createElement('th');
+            amount.innerText = 'Amount';
+            var status = document.createElement('th');
+            status.innerText = 'Status';
+            tr.append(from);
+            tr.append(to);
+            tr.append(amount);
+            tr.append(status);
+            var thead = document.createElement('thead');
+            thead.append(tr);
+            table.append(thead);
+            var tbody = document.createElement('tbody');
+            for (var i = 0; i < user.fundTransferHistory.length; i++) {
+                var trData = document.createElement('tr');
+                var fromData = document.createElement('td');
+                fromData.innerText = user.fundTransferHistory[i].sender_name;
+                var toData = document.createElement('td');
+                toData.innerText = user.fundTransferHistory[i].receiver_name;
+                var amountData = document.createElement('td');
+                amountData.innerText = user.fundTransferHistory[i].amount;
+                trData.append(fromData);
+                trData.append(toData);
+                trData.append(amountData);
+                var statusCell = document.createElement('td');
+                if (localStorage.getItem('active-user') == user.fundTransferHistory[i].sender) {
+                    statusCell.innerText = 'Debit';
+                    statusCell.classList.add('debit');
+                }
+                else {
+                    statusCell.innerText = 'Credit';
+                    statusCell.classList.add('credit');
+                }
+                trData.append(statusCell);
+                tbody.append(trData);
+            }
+            table.append(tbody);
+            document.getElementById('transaction-history').append(table);
+        }
+
+
+        // update balance
+        function updateBalance() {
+            var amount = document.getElementById('change-user-current-fund').value;
+            amount = parseInt(amount);
+            userDB.updateUserFund(user.email, amount, (status) => {
+                if (status) window.location.href = 'index.html';
+            })
+        }
+
+
+        // transfer fund from current user to other
+        function transferFund() {
+            var amount = document.getElementById('transfer-amount').value;
+            amount = parseInt(amount);
+
+            var receiver = document.getElementById('transfer-name').value.toString().split(',')[0];
+            var receiverName = document.getElementById('transfer-name').value.toString().split(',')[1];
+            if (!(user.currentFund > 0) || !(user.currentFund - amount >= 0)) {
+                alert('Not sufficient balance');
+                return;
+            }
+
+            let f1 = new Fund(new Date().getTime(), localStorage.getItem('active-user'), user.name, receiver, receiverName, amount);
+            fundDB.insertFundData(f1);
+            user.currentFund = parseInt(user.currentFund) - parseInt(amount)
+            userDB.updateUserFund(user.email, user.currentFund, (status) => {
+                if (status) window.location.href = 'index.html';
+            })
+        }
+
+        // for activity check
+        var counter = 0;
+
+        activityEvents.forEach((e) => {
+            document.addEventListener(e, resetCounter);
+        });
+
+        function resetCounter() {
+            counter = 0;
+        }
+
+        window.onload = function () {
+
+            setInterval(() => {
+                if (counter == 59) logoutUser();
+                else counter++;
+            }, 1000);
+
+            var invalidMessage = document.getElementById('invalidMessage');
+            var validSession = document.getElementById('validSession');
+            validSession.style.display = 'none';
+            invalidMessage.style.display = 'block';
+
+            if (!localStorage.getItem('active-user')) {
+                invalidMessage.style.display = 'block';
+                validSession.style.display = 'none';
+            }
+
+            else {
+                loginDB.getLoginStatus(localStorage.getItem('active-user'), (status) => {
+                    if (status == 'true') {
+                        invalidMessage.style.display = 'none';
+                        validSession.style.display = 'block';
+                        document.getElementById('user-name').innerText = user.name;
+                        document.getElementById('user-current-fund').innerText = user.currentFund;
+                    }
+                    else {
+                        invalidMessage.style.display = 'block';
+                        validSession.style.display = 'none';
+                    }
+                })
+            }
+        }
+
+        // logout function
+        function logoutUser() {
+            if (!localStorage.getItem('active-user')) {
+                window.location.href = 'login.html'
+            }
+            else {
+                loginDB.getLoginStatus(localStorage.getItem('active-user'), (status) => {
+                    if (status == 'true') {
+                        loginDB.updateLoginStatus(localStorage.getItem('active-user'), false);
+                    }
+                    localStorage.removeItem('active-user');
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>

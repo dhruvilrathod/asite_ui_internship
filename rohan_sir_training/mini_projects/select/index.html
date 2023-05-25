@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Select Element</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Scope of dropdown to recognize click -->
+        <div id="mainScope">
+
+            <!-- Top div to acknowlegde selection -->
+            <div class="select-container" onclick="toggleDropDown()">
+                <div id="selectedValues" class="select-value selected-value">
+                    Select Here...
+                </div>
+                <div class="dropdown-icon">
+                    <span class="fa fa-angle-down"></span>
+                </div>
+            </div>
+
+            <!-- Header of dropdown -->
+            <div class="select-menu-container" id="dropDownContainer">
+
+                <!-- Controls to clear selection or close the dropdown -->
+                <div class="select-menu-controls">
+                    <div class="select-menu-control" onclick="clearList()">
+                        Clear
+                    </div>
+                    <div class="select-menu-control" onclick="displaySelected(); toggleDropDown();">
+                        Done
+                    </div>
+                </div>
+
+                <!-- Search value functionality -->
+                <div class="select-menu-search-container">
+                    <input oninput="searchFilter(event)" type="text" title="search" name="search" id="search"
+                        placeholder="Search Here..." class="select-menu-search">
+                    <i id="clearSearch" class="fa fa-close icon" onclick="clearSearch()"></i>
+                </div>
+
+                <!-- Div to show all the fetched items from source / array -->
+                <div id="allItems">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- div to display selection -->
+    <div class="display-container">
+        Selected items from checklist:
+        <br>
+
+        <div class="display-content">
+        
+            <!-- Container to display selected content -->
+            <ul id="selectedContent">
+            </ul>
+
+        </div>
+    </div>
+    <script>
+
+        // this array will contain selected elements at a specific time
+        var selected = [];
+
+        // source array
+        const arr = [
+            'Dark', 'chocolate',
+            'Baked', 'tortilla',
+            'Chips', 'Salsa',
+            'Almonds', 'or',
+            'walnuts', 'abc',
+            'Whole-grain', 'baked',
+            'crackers', '100-calorie',
+            'snack', 'packs',
+            'Graham', 'crackers',
+            'High-fiber', 'cereal',
+            'bars', 'Reduced-fat',
+            'microwaveable', 'popcorn'
+        ];
+
+
+        // window listener to close modal when clicked outside of the modal
+        window.onload = function () {
+            var x = document.getElementById('dropDownContainer');
+            const mainScope = document.getElementById('mainScope');
+            document.addEventListener("click", (e) => {
+                if (!mainScope.contains(e.target)) {
+                    x.style.display = 'none';
+                }
+            });
+            generateDropDown(arr);
+        }
+
+        // main function to generate dropdown list
+        // optional parameter: highLightValue which will useful for search
+        function generateDropDown(arr, hightLightValue = '') {
+            var allItems = document.getElementById('allItems');
+            allItems.innerHTML = '';
+            arr.forEach((d, i) => {
+                var div = document.createElement('div');
+                var inp = document.createElement('input');
+                var label = document.createElement('label');
+                inp.setAttribute('type', 'checkbox');
+                inp.setAttribute('title', d);
+                inp.setAttribute('value', d);
+                inp.setAttribute('name', `item${i}`);
+                inp.setAttribute('id', `item${i}`);
+                inp.setAttribute('onchange', "itemSelected(event)");
+                if(selected.includes(d)) inp.defaultChecked = true;
+                inp.classList.add('menu-item');
+                label.classList.add('select-value-label');
+                label.setAttribute('for', `item${i}`)
+                label.setAttribute('title', d);
+
+                // when using with search
+                if (hightLightValue !== '') {
+                    if (d.toLowerCase().includes(hightLightValue.toLowerCase())) {
+                        var start = d.toLowerCase().indexOf(hightLightValue);
+                        var part1 = d.substring(0, start);
+                        var part2 = '<span style="background-color:yellow">' + d.substring(start, start + hightLightValue.length) + "</span>";
+                        var part3 = d.substring(start + hightLightValue.length, d.length);
+                        label.innerHTML = part1 + part2 + part3;
+                        div.append(inp);
+                        div.append(label);
+                        div.classList.add('select-value')
+                        allItems.append(div);
+                    }
+                }
+
+                // when using without search
+                else {
+                    label.innerText = d;
+                    div.append(inp);
+                    div.append(label);
+                    div.classList.add('select-value')
+                    allItems.append(div);
+                }
+            });
+            if (allItems.innerHTML == '') {
+                allItems.innerHTML += 'No Elements Found'
+            }
+        }
+
+        // when an item is selected using checkbox
+        function itemSelected(e) {
+            if (!selected.includes(e.target.value)) selected.push(e.target.value);
+            else selected.splice(selected.indexOf(e.target.value), 1);
+            displaySelected();
+        }
+
+        // to display where it needed
+        function displaySelected() {
+            var selectedValuesString = '';
+            var selectedContent = document.getElementById('selectedContent')
+            selectedContent.innerHTML = '';
+            var selectedValues = document.getElementById('selectedValues');
+            selectedValues.innerHTML = ''
+            if (selected.length > 0) {
+                var ul = document.createElement('ul');
+                selected.forEach((d, i) => {
+                    if (i < selected.length - 1)
+                        selectedValuesString += `${d}, `
+                    else selectedValuesString += d;
+                    var li = document.createElement('li');
+                    li.innerText = d;
+                    selectedContent.append(li);
+                });
+                selectedValues.innerText = selectedValuesString;
+            }
+            else selectedValues.innerText = 'Select Here...'
+        }
+
+        // to clear selection
+        function clearList() {
+            selected = [];
+            var items = document.getElementsByClassName('menu-item');
+            document.getElementById('selectedContent').innerHTML = '';
+            document.getElementById('selectedValues').innerHTML = 'Select Here...';
+            for (var i in items) {
+                items[i].checked = false;
+            }
+        }
+
+        // toggle the select dropdown
+        function toggleDropDown() {
+            var x = document.getElementById('dropDownContainer');
+            if (x.style.display == '' || x.style.display == 'none') x.style.display = "block";
+            else x.style.display = 'none';
+        }
+
+        // seach functionality main function
+        function searchFilter(e) {
+            var x = document.getElementById('clearSearch');
+            if (e.target.value == '' && x.style.display == 'block') x.style.display = 'none';
+            else if (e.target.value != '' && (x.style.display == 'none' || x.style.display == '')) {
+                x.style.display = 'block';
+            }
+            generateDropDown(arr, e.target.value);
+        }
+
+        // clear the search filter
+        function clearSearch() {
+            document.getElementById('search').value = '';
+            document.getElementById('clearSearch').style.display = 'none';
+            generateDropDown(arr);
+        }
+    </script>
+</body>
+
+</html>

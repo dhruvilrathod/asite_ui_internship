@@ -1,0 +1,31 @@
+Updation Table:
+<div>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th>Owner</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th style="display: none;">id</th>
+        </tr>
+        <tr *ngFor="let p of products">
+            <td><input type="text" (change)="change(p, $event, 'name')" value="{{p.name}}" id="name"></td>
+            <td><input type="number" (change)="change(p, $event, 'price')" value="{{p.price}}" id="price"></td>
+            <td><input type="text" value="{{p.type}}" id="type"></td>
+            <td><input type="text" value="{{p.owner}}" id="owner"></td>
+            <td><input type="number" value="{{p.contact}}" id="contact"></td>
+            <td><input type="text" value="{{p.email}}" id="email"></td>
+            <td>
+                <button type="button" (click)="deleteProduct(p.id)">Delete</button>
+            </td>
+            <td style="display: none;">{{p.id}}</td>
+        </tr>
+    </table>
+</div>
+<br><br>
+Note: # - Normal Price, ## - Exponential Price
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+    <app-product *ngFor="let p of products" [productID]="p.id"></app-product>
+</div>

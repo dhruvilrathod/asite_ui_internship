@@ -1,0 +1,16 @@
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Nutritions</th>
+        <th>Vitamin C</th>
+    </tr>
+    <tr *ngFor="let f of fruits" [ngClass]="{'juicy': f.type == 'Juicy', 'dry': f.type == 'Dry'}">
+        <td>{{f.id}}</td>
+        <td>{{f.name}}</td>
+        <td>{{f.type}}</td>
+        <td id="{{f.id}}" [appFruits]="[f.nutritions, f.type, f.id]"></td>
+        <td [innerHTML]="f.vitminc | pureFruit | sanitizeDom"></td>
+    </tr>
+</table>

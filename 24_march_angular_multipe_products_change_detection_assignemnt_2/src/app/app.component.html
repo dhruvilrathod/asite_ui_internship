@@ -1,0 +1,7 @@
+<!-- product list -->
+<app-product-list [products]="product" [changedProduct]="changedProduct"></app-product-list>
+
+<!-- product item -->
+<div class="cards">
+  <app-product-item (quantityChange)="quantityChanged($event)" *ngFor="let p of product" [product]="p"></app-product-item>
+</div>

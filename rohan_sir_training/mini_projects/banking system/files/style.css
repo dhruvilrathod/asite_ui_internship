@@ -1,0 +1,127 @@
+body{
+    margin: 0;
+}
+
+.my-form {
+    width: 400px;
+    height: auto;
+    background-color: aliceblue;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 10px;
+    padding: 20px 0;
+    margin: 40px auto;
+}
+
+.form-title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: xx-large;
+}
+
+.form-fields-container {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-field-container {
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.form-fields {
+    border: 1px solid black;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 3px;
+    font-size: large;
+}
+
+.form-button-container {
+    width: 100%;
+    text-align: center;
+}
+
+button {
+    margin: 20px 0;
+    width: fit-content;
+    background-color: darkblue;
+    color: aliceblue;
+    padding: 10px;
+    font-size: large;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+#header {
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    background-color: blue;
+}
+
+#header-username{
+    font-size: xx-large;
+    color: white;
+    font-weight: bold;
+}
+
+#user-section{
+    padding: 20px;
+    width: fit-content;
+    text-align: center;
+    line-height: 40px;
+    font-size: larger;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color:rgb(255, 255, 0);
+}
+
+.my-input{
+    height: 30px;
+    font-size: large;
+}
+
+table {
+    width: 500px;
+    margin: 10px auto;
+    border: none;
+    border-collapse: collapse;
+}
+
+tr {
+    height: 30px;
+}
+
+td {
+    text-align: center;
+}
+
+tbody > tr:nth-child(odd) {
+    background-color: rgb(223, 247, 255);
+}
+
+tbody > tr:nth-child(even) {
+    background-color: aliceblue;
+}
+
+thead {
+    background-color: darkblue;
+    color: aliceblue;
+    font-size: larger;
+}
+
+
+.debit {
+    background-color: lightcoral;
+}
+
+.credit {
+    background-color: greenyellow;
+}

@@ -1,0 +1,18 @@
+Tech-stack to use:
+	- Javascript
+	- HTML
+	- CSS
+
+Create a banking Application with following funtionalities:
+	1. Login/Logout - If the user shows no activity on the page for more than 60 seconds than logout the user.
+	2. Dashboard - User should be able to see funds & transations.
+			 - User should be able to transfer funds from one user to another.
+
+Important:
+	- Do not use any kind of liberary or framework.
+	- Use classes to manage user account data.
+	- User password should be stored in encrypted form.
+
+
+	
+	

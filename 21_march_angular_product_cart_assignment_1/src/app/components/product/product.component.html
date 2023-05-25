@@ -1,0 +1,14 @@
+<div class="quantity">
+    Total Quantity: {{quantity}}
+</div>
+
+
+<div class="card" [ngClass]="{'on-sale' : onSale}">
+    <img [src]="product.url" alt="Denim Jeans" style="width:100%">
+    <h1>{{product.name}}</h1>
+    <p class="price">${{product.price}}</p>
+    <div>
+        <button type="button" title="increase" (click)="quantity = quantity+1">Add</button>
+        <button type="button" title="decrease" (click)="quantity = quantity - 1" [disabled]="quantity == 0">Delete</button>
+    </div>
+</div>
